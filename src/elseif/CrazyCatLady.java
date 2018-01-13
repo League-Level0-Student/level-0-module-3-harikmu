@@ -10,16 +10,21 @@ import javax.swing.JOptionPane;
 public class CrazyCatLady {
 	public static void main(String[] args) {
 		// 1. Ask the user how many cats they have
-		int cats = JOptionPane.showOptionDialog(null, "How many cats do you have?", "Pop-up Title", 0,
-				JOptionPane.INFORMATION_MESSAGE, null, new String[] {}, null);
+		String answer = JOptionPane.showInputDialog("How many cats do you have?");
 		// 2. Convert their answer into an int
-		
+		int cats = Integer.parseInt(answer);
 		// 3. If they have more than 3 cats, tell them they're a crazy cat lady
-
+		if (cats > 3) {
+			JOptionPane.showMessageDialog(null, "You're a crazy cat lady");
+		}
 		// 4. If they have 3 or less, call the method below to show them a cat video
-
+		if (cats <= 3) {
+			playVideo("https://www.youtube.com/watch?v=nRzsgCp60YU");
+		}
 		// 5. If they say 0, show them a video of A Frog Sitting on a Bench Like a Human
-		
+		if (cats == 0) {
+			playVideo("https://www.youtube.com/watch?v=W_juM14WHNQ");
+		}
 	}
 
 	static void playVideo(String videoURL) {
